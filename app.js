@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 
+const layout = require('./views/layout');
+
 app.use(morgan('dev'));
 
 app.use(express.json());
@@ -11,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	res.send(layout());
 });
 const PORT = 1337;
 
